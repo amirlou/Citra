@@ -1,7 +1,7 @@
 if [ "$TRAVIS_EVENT_TYPE" = "push" ]&&[ "$TRAVIS_BRANCH" = "master" ]; then
     GITDATE="`git show -s --date=short --format='%ad' | sed 's/-//g'`"
     GITREV="`git show -s --format='%h'`"
-
+    mkdir -p "artifacts"
     if [ "$TRAVIS_OS_NAME" = "linux" -o -z "$TRAVIS_OS_NAME" ]; then
         REV_NAME="citra-${GITDATE}-${GITREV}-linux-amd64"
         UPLOAD_DIR="/citra/nightly/linux-amd64"
